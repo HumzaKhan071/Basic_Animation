@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:animatied_container/home.dart';
 import 'package:animatied_container/tween.dart';
 import 'package:animatied_container/tweenpractice2.dart';
 import 'package:animatied_container/tweenpractice3.dart';
@@ -14,6 +17,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      Timer(
+          const Duration(seconds: 3),
+          () => Navigator.push(
+              context, MaterialPageRoute(builder: (_) => const HomeScreeen())));
+    });
+  }
+
   double _width = 200;
 
   double _margin = 30;
@@ -24,7 +39,17 @@ class _MyAppState extends State<MyApp> {
   double _radius = 30;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: finalpractice()
+    return MaterialApp(
+      home: Scaffold(
+        body:Center(
+        child: Container(
+          child: Text(
+            "Abdullah",
+            style: TextStyle(color: Colors.yellow),
+          ),
+        ),
+      ), 
+      ),
         //   body: AnimatedContainer(
         //     margin: EdgeInsets.all(_margin),
         //     duration: Duration(seconds: 1),
